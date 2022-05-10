@@ -33,7 +33,7 @@ class TwoSumController() {
 		}
 		throw ResponseStatusException(HttpStatus.NOT_FOUND, "No solution")
 	}
-	//	Hasura Action
+	// Hasura Action
 	@PostMapping("/sumFromInput")
 	fun twoSumFromInput(@RequestBody hasura: Hasura): Any {
 		println(hasura)
@@ -51,8 +51,6 @@ class TwoSumController() {
 	}
 }
 
-data class Hasura(val action: ActionName, val input: Number)
-data class ActionName(val name: String)
 data class Number(val nums: IntArray, val target: Int) {
 	override fun equals(other: Any?): Boolean {
 		if (this === other) return true
@@ -69,3 +67,5 @@ data class Number(val nums: IntArray, val target: Int) {
 		return nums.contentHashCode()
 	}
 }
+data class Hasura(val action: ActionName, val input: Number)
+data class ActionName(val name: String)
